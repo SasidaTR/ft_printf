@@ -18,14 +18,7 @@ int	ft_putnbr_u(unsigned int n)
 
 	len = 0;
 	if (n >= 10)
-	{
-		ft_putnbr_u(n / 10);
-		ft_putnbr_u(n % 10);
-	}
-	else
-	{
-		ft_putchar(n + '0');
-		len++;
-	}
+		len += ft_putnbr(n / 10);
+	len += ft_putchar((n % 10) + '0');
 	return (len);
 }

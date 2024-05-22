@@ -14,26 +14,13 @@
 
 int	ft_puthex(unsigned int n)
 {
-	int	len;
+	char	*hex;
+	int		len;
 
+	hex = "0123456789abcdef";
 	len = 0;
 	if (n >= 16)
-	{
-		ft_puthex(n / 16);
-		ft_puthex(n % 16);
-	}
-	else
-	{
-		if (n < 10)
-		{
-			ft_putchar(n + '0');
-			len++;
-		}
-		else
-		{
-			ft_putchar(n - 10 + 'a');
-			len++;
-		}
-	}
+		len += ft_puthex(n / 16);
+	len += ft_putchar(hex[n % 16]);
 	return (len);
 }

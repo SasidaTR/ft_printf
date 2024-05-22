@@ -19,23 +19,16 @@ int	ft_putnbr(int n)
 	len = 0;
 	if (n == -2147483648)
 	{
-		ft_putstr("-2147483648");
+		len += ft_putstr("-2147483648");
 		return (len);
 	}
 	if (n < 0)
 	{
-		ft_putchar('-');
+		len += ft_putchar('-');
 		n = -n;
 	}
 	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	else
-	{
-		ft_putchar(n + '0');
-		len++;
-	}
+		len += ft_putnbr(n / 10);
+	len += ft_putchar((n % 10) + '0');
 	return (len);
 }
