@@ -12,8 +12,11 @@
 
 #include "ft_printf.h"
 
-void	ft_puthex(unsigned int n)
+int	ft_puthex(unsigned int n)
 {
+	int	len;
+
+	len = 0;
 	if (n >= 16)
 	{
 		ft_puthex(n / 16);
@@ -22,8 +25,15 @@ void	ft_puthex(unsigned int n)
 	else
 	{
 		if (n < 10)
+		{
 			ft_putchar(n + '0');
+			len++;
+		}
 		else
+		{
 			ft_putchar(n - 10 + 'a');
+			len++;
+		}
 	}
+	return (len);
 }
