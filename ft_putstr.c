@@ -19,7 +19,7 @@ int	ft_putstr(char *str)
 	len = 0;
 	if (!str)
 	{
-		ft_putstr("(null)");
+		write(1, "(null)", 6);
 		return (6);
 	}
 	while (str[len])
