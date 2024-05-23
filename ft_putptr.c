@@ -17,10 +17,13 @@ int	ft_putptr(void *ptr)
 	unsigned long	addr;
 	int				len;
 
+	if (ptr == NULL)
+	{
+		ft_putstr("0x0");
+		return (3);
+	}
 	addr = (unsigned long)ptr;
 	len = 2;
-	if (ptr == NULL)
-		return (ft_putstr("0x0"));
 	ft_putstr("0x");
 	len += ft_puthex(addr);
 	return (len);

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	ft_handle_format(char format, va_list args)
+static int	ft_format(char format, va_list args)
 {
 	int	len;
 
@@ -49,7 +49,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			len += ft_handle_format(format[i + 1], args);
+			len += ft_format(format[i + 1], args);
 			i++;
 		}
 		else
