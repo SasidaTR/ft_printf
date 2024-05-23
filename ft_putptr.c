@@ -19,8 +19,8 @@ int	ft_putptr(void *ptr)
 
 	if (ptr == NULL)
 	{
-		ft_putstr("0x0");
-		return (3);
+		ft_putstr("(nil)");
+		return (5);
 	}
 	addr = (unsigned long)ptr;
 	len = 2;
