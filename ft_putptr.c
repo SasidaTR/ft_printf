@@ -19,24 +19,9 @@ int	ft_putptr(void *ptr)
 
 	addr = (unsigned long)ptr;
 	len = 2;
+	if (ptr == NULL)
+		return (ft_putstr("0x0"));
 	ft_putstr("0x");
-	if (addr >= 16)
-	{
-		ft_putptr((void *)(addr / 16));
-		ft_putptr((void *)(addr % 16));
-	}
-	else
-	{
-		if (addr < 10)
-		{
-			ft_putchar(addr + '0');
-			len++;
-		}
-		else
-		{
-			ft_putchar(addr - 10 + 'a');
-			len++;
-		}
-	}
+	len += ft_puthex(addr);
 	return (len);
 }
