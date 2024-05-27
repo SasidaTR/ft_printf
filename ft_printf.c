@@ -36,18 +36,26 @@ static int	ft_format(char format, va_list args)
 	return (len);
 }
 
+static int	is_valid_format(char c)
+{
+	return (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
+		|| c == 'u' || c == 'x' || c == 'X' || c == '%');
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
 	int		len;
 
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	i = 0;
 	len = 0;
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] == '%' && is_valid_format(format[i + 1]))
 		{
 			len += ft_format(format[i + 1], args);
 			i++;
